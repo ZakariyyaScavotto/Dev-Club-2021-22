@@ -7,7 +7,8 @@ My notes on the basics of using Github since I tend to forget
 2) In CMD, move to the directory of your choosing, then type git clone (Paste the url here, without the parentheses) 
    This pulls the repository into your designated directory, in a folder with the same name as the repo.
 
-3) From here, do what you want, add code and other files.
+3) From here, do what you want, add code and other files. 
+   Tip: for future steps, it helps for file names to not have spaces in them.
 
 4) In terminal, when you're done, do git status. This shows what's different compared to what's on Github.
 

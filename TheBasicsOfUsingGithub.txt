@@ -1,0 +1,22 @@
+My notes on the basics of using Github since I tend to forget
+(Mainly based on watching this vid: https://www.youtube.com/watch?v=0fKg7e37bQE&list=PLhqtdvT7_bdkx8GqHQfSnkWmUyKS6_Se4&index=2)
+
+1) Make the repository, make sure to include README file, when you go to the repository's page, 
+   go to the code tab, then copy the link to the repository.
+
+2) In CMD, move to the directory of your choosing, then type git clone (Paste the url here, without the parentheses) 
+   This pulls the repository into your designated directory, in a folder with the same name as the repo.
+
+3) From here, do what you want, add code and other files.
+
+4) In terminal, when you're done, do git status. This shows what's different compared to what's on Github.
+
+5) If a file isn't being tracked, to add it do git add (name of file) 
+   Tip: to add all files do git add -A
+
+6) Once everything is added and ready, do git commit -m "Message about the changes, don't be generic"
+   Note: You can just do git commit, but that's mainly for multi-line commits. When you do that if you get stuck,
+   press ESC, then do :, then do wq, then hit enter. That should take you back to the regular CMD.
+
+7) Once you've commited all your changes, to push them out to Github do git push
+   In contrast, if you want to pull all changes that have been made to the repo, do git pull

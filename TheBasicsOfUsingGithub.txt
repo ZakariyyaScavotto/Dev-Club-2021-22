@@ -9,10 +9,11 @@ My notes on the basics of using Github since I tend to forget
 
 3) From here, do what you want, add code and other files. 
    Tip: for future steps, it helps for file names to not have spaces in them.
+   Tip 2: Remember to save your file when you're done working.
 
 4) In terminal, when you're done, do git status. This shows what's different compared to what's on Github.
 
-5) If a file isn't being tracked, to add it do git add (name of file) 
+5) If a file isn't being tracked or is ready to commit, to add it do git add (name of file) 
    Tip: to add all files do git add -A
 
 6) Once everything is added and ready, do git commit -m "Message about the changes, don't be generic"

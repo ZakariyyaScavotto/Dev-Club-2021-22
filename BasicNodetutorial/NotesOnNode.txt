@@ -1,0 +1,99 @@
+Based on this video: https://www.youtube.com/watch?v=TlB_eWDSMt4
+
+Node: Open source cross platform runtime for executing JS code outside of broswer
+    Often used for backend services (API), Mobile/web app needs to talk to servers to do stuff.
+    Ideal for building highly scalable, data intensive, real time apps
+    Great for prototyping, agile development
+    Fast, highly scalable
+    
+Differences in Broswer JS vs Node:
+    Instead of using document or window, there's file system, requests, etc.
+
+NODE IS NOT A PROGRAMMING LANGUAGE, NOT A FRAMEWORK, IT'S A RUNTIME ENVIRONMENT
+
+Asynchronous(non-blocking) architecture: Node can serve many things at once
+    When database is ready with query, puts a message in the Event Queue, where the event is then processed.
+
+DO NOT USE NODE FOR CPU-INTENSIVE APPS 
+
+When installing, make sure it is added to Path, check it is installed by running: node --version :in the terminal
+
+Make directory: mkdir (Your name here, without Parens)
+    In directory, make new file, call it smthng like app.js
+    To run file, go to terminal, run: node app.js
+
+Global Object (like console): can be accessed anywhere
+    setTimeout(): call a function after delay
+    clearTimeout()
+    setInterval(): repeatedly call function after given delay
+    clearInterval()
+    Browsers have window, where all variables are. Automatically added before things like console
+    In Node, there is no window, instead there is global. BASIC var NOT ADDED TO GLOBAL OBJECT, only scoped to the file
+
+Avoid defining variables/functions in global scope, instead we need modules
+    Every file is considered a module, variables/functions in that file are scoped in that file (private)
+    To use outside the file, need to export and make it public
+    module is not a global object 
+
+Adding module:
+    Have a separate file with stuff in it
+    Property of module exports: anything added will be exported from this module, will be available outside.
+    module.exports.objectName = objectName; // Key to export, exported name doesn't have to be same
+                    ^ Exported name
+    Only export what's needed
+Loading Module:
+    Use require() function, only in Node(not browsers), takes 1 parameter(the name/path of target module to load)
+    Returns object that is exported from the target module
+
+Path Module:
+    Provides utility with working for file/directory paths
+    const path = require('path');
+    path.parse(__filename) easily separates the path into individual parts
+
+OS Module:
+    Provides OS related information
+    const os = require('os');
+    os.totalmem(), os.freemem()
+
+File System Module:
+    Can work with files and directories
+    const fs = require('fs');
+    sync vs. async 
+    avoid sync, in real world use asynch 
+    fs.readdir('./', function(err, files){
+    if (err) console.log('Error', err);
+    else console.log('Result', files);
+    });
+
+Event: A signal that indicates something has happened, our job is to respond
+Events Module:
+    Basic approach:
+    class EventEmitter
+    const EventEmitter = require('events');
+    NEED TO HAVE LISTENER BEFORE EVENT 
+    emitter.on('messageLogged', (eventArg) => {
+    console.log('Listener called', eventArg);
+    });
+    emitter.emit('messageLogged', {id: 1, url: 'http://'});
+
+    Advanced approach: 
+    Create a class that extends Eventemitter so it has all the functionality, but can add more (like logging a message)
+    when you want to raise an event, use this.emit(blah, blah)
+    in app module, instead of using EventEmitter instance use instance of custom class
+
+HTTP Module:
+    Has various classes/properties/methods for handling HTTP requests
+    CTRl+C to exit listening
+    const server = http.createServer((req, res) => {
+    if(req.url === '/'){
+        res.write('Hello World'); //makes blank site with Hello World on it
+        res.end();
+    }
+
+    if (req.url === '/api/courses'){
+        res.write(JSON.stringify([1, 2, 3]));
+        res.end();
+    }
+    });
+    server.listen(3000);
+    console.log('Listening on port 3000...');

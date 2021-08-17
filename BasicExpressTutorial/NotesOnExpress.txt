@@ -1,0 +1,79 @@
+Based on these videos: https://www.youtube.com/watch?v=L72fhGm1tfE, https://www.youtube.com/watch?v=z7ikpQCWbtQ
+
+Express: most popular web framework for Node (Node js), server-side/backend (not like frontend React, Angular, Vue)
+Why express?
+    Makes building web-apps with Node easier (less code)
+    Used for server rendered apps and APIs
+    Light, fast and free
+    Full control of request/response
+    Popular Node framework
+    Great to work with clientside frameworks since it's all javascript
+
+Basic server syntax:
+    const express = require('express'); //bring in express
+
+    //Init express
+    const app = express();
+
+    //create endpoints/route handlers
+    app.get('/', function(req, res){   // '/' = index route
+        res.send('Hello World!'); //respond with text
+    });
+
+    //listen on a port
+    app.listen(5000);
+
+Basic route handling:
+    app.get(), app.post(), app.delete(), app.put(), etc.
+    Access to parameters, query strings, url parts, etc.
+    Express has a router so we can store routes in separate files and export
+    Can parse incoming data with the Body Parser
+
+    app.get('/', function(req, res){
+        //fetch from database
+        //load pages
+        //return JSON
+        //full access to request & response
+            Request object: represents HTTP request properties (URL parameters, query strings, data sent in bodies)
+            Response object: HTTP response (send back JSON data, render a template, redirect)
+        //basically whatever you want
+    });
+
+Express Middleware:
+    Middleware functions: functions that have access to request and response
+        execute any code
+        make changes to request/response objects
+        end response cycle
+        call next middleware in stack
+    stack of functions that execute when request is made 
+
+(NOTES ON 2ND VID)
+Move to folder of your choice (BasicExpressTutorial here)
+Starting off: in cmd type: npm init -y (Starts new project)
+in cmd type: npm install express (Installs express)
+Make new file in folder, call it whatever (main.js)
+
+app.get() stuff, listen on a port, then run with node (filename)
+
+When making a change, must save the change, stop the server, restart it, then refresh tab
+in cmd: npx nodemon main.js
+    goes and downloads nodemon, uses it to run file
+    now anytime a change is saved it will auto quit and restart (need to refresh page)
+
+middleware: function that can modify req/res objects
+    app.use(middlewareFunctionHere)
+    can apply to specific routes, router level middleware
+
+install EJS: npm install ejs
+Setting up EJS:
+    Make folder called 'views'
+    const path = require('path')
+
+    app.set('view engine', 'ejs');
+    app.set('views', path.join(__dirname, 'views'));
+
+do html stuff in the .ejs file, can also pass in new info and access it (Kinda confusing not gonna lie!!)
+
+CSS:
+    make public folder
+    

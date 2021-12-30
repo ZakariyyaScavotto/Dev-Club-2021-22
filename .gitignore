@@ -1,2 +1,2 @@
-.vscode/
-BasicExpresstutorial/node_modules/
+.vscode/*
+BasicExpresstutorial/node_modules/*
